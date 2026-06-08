@@ -3,11 +3,34 @@
     background-color: rgb(147, 147, 240);
     border: none;
     border-radius: 25px;
-    margin: 2%;
     font-weight: bold;
 }
 
 .doStuff:hover {
     color:white;
     background-color: rgb(63, 63, 218);
+}
+
+body {margin: 0;}
+
+#main {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(15rem, 1fr));
+    overflow-y: scroll;
+    
+}
+
+.card {
+    max-height: 40vh;
+    max-width: 30vw;
+    padding: 2%;
+    margin: 3%;
+    border: solid 2px;
+    border-radius: 25px;
+    border-width: 2px;
+    border-color:  rgb(63, 63, 218);
+    
 }
