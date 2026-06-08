@@ -10,14 +10,30 @@
 <body>
     <div id="main">
         <div class="card" id="addBook">
-            
+            <div>
+                <p>Fill this form to add a new book:</p>
+                <form action="" method="post">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required>
+                </form>
+                <form action="" method="post">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" required>
+                </form>
+                <form action="" method="post">
+                    <label for="pages">Page number</label>
+                    <input type="number" id="pages" required>
+                </form>
+                <form action="" method="post">
+                    <label for="read">Read</label>
+                    <input type="text" id="read" required>
+                </form>
+            </div>
             <button class="doStuff" id="addBook">Add new book</button>
-            
         </div>
+
         <div class="card" id="test">
-            
             <button class="doStuff" id="showLibrary">Show Library</button>
-            
         </div>
 
 

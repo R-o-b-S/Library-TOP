@@ -30,5 +30,5 @@ function showLibrary () {
     }
 }
 
-document.getElementById("addBook").onclick = addBookToLibrary;
+//document.getElementById("addBook").onclick = addBookToLibrary;
 document.getElementById("showLibrary").onclick = showLibrary;
