@@ -1,0 +1,13 @@
+.doStuff {
+    padding: 1rem;
+    background-color: rgb(147, 147, 240);
+    border: none;
+    border-radius: 25px;
+    margin: 2%;
+    font-weight: bold;
+}
+
+.doStuff:hover {
+    color:white;
+    background-color: rgb(63, 63, 218);
+}
