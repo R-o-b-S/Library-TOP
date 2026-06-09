@@ -1,9 +1,9 @@
 .doStuff {
-    padding: 1rem;
+    padding: 0.4rem;
     background-color: rgb(147, 147, 240);
     border: none;
     border-radius: 25px;
-    font-weight: bold;
+    
 }
 
 .doStuff:hover {
@@ -26,10 +26,11 @@ body {
     width: 12rem;
     height: 14rem;
     padding: 1rem;
-    margin: 1rem;
+    margin: 0.6rem;
     border: solid 2px;
     border-radius: 25px;
     border-color:  rgb(63, 63, 218);
+    background-color: rgb(238, 238, 238);
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -40,6 +41,17 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.bookInfo > p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-align: end;
+}
+
+.bI {
+    font-weight: bold;
 }
 
 form {

@@ -72,6 +72,7 @@ function fillLib () {
         titleDiv.id = "title"+i;
         document.getElementById("container"+i).appendChild(titleDiv);
         const title1 = document.createElement("p");
+        title1.classList = "bI";
         let txt = "Book title:";
         title1.textContent = txt;
         document.getElementById("title"+i).appendChild(title1);
@@ -85,6 +86,7 @@ function fillLib () {
         authorDiv.id = "author"+i;
         document.getElementById("container"+i).appendChild(authorDiv);
         const author1 = document.createElement("p");
+        author1.classList = "bI";
         txt = "Author:";
         author1.textContent = txt;
         document.getElementById("author"+i).appendChild(author1);
@@ -98,6 +100,7 @@ function fillLib () {
         pagesDiv.id = "pages"+i;
         document.getElementById("container"+i).appendChild(pagesDiv);
         const pages1 = document.createElement("p");
+        pages1.classList = "bI";
         txt = "N. of pages:";
         pages1.textContent = txt;
         document.getElementById("pages"+i).appendChild(pages1);
@@ -111,6 +114,7 @@ function fillLib () {
         readDiv.id = "read"+i;
         document.getElementById("container"+i).appendChild(readDiv);
         const read1 = document.createElement("p");
+        read1.classList = "bI";
         txt = "Read:";
         read1.textContent = txt;
         document.getElementById("read"+i).appendChild(read1);
@@ -118,6 +122,23 @@ function fillLib () {
         txt = myLibrary[i].read;
         read2.textContent = txt;
         document.getElementById("read"+i).appendChild(read2);
+
+        const buttonDiv = document.createElement("div");
+        buttonDiv.classList = "bookInfo";
+        buttonDiv.id = "butt"+i;
+        document.getElementById(myLibrary[i].id).appendChild(buttonDiv);
+        const butt1 = document.createElement("button");
+        butt1.classList = "doStuff";
+        butt1.id = "delete";
+        txt = "Delete book";
+        butt1.textContent = txt;
+        document.getElementById("butt"+i).appendChild(butt1);
+        const butt2 = document.createElement("button");
+        butt2.classList = "doStuff";
+        butt2.id = "refRead";
+        txt = "Read status";
+        butt2.textContent = txt;
+        document.getElementById("butt"+i).appendChild(butt2);
     }
     
 }
