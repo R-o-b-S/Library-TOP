@@ -56,7 +56,9 @@ function showLibrary () {
     refreshLib ();
 }
 
-function refreshLib () {
+let e = 0;
+
+function fillLib () {
     const counter = myLibrary.length;
     for (i=0; i<counter; i++){
         const newDiv = document.createElement("div");
@@ -92,7 +94,22 @@ function refreshLib () {
         read.textContent = txt;
         document.getElementById("cont"+i).appendChild(read);
     }
+    e++;
 }
+
+function refreshLib () {
+    if (e==0) {
+        fillLib();
+    }
+    else {
+        const counter = myLibrary.length;
+        for (i=0; i<counter; i++) {
+            const element = document.getElementById(myLibrary[i].id);
+            element.remove();
+            }
+        fillLib();
+        }
+} 
 
 
 
