@@ -40,10 +40,10 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
 ];  
 
 function addBookToLibrary () { //in sviluppo, input tramite form
-    const title = window.prompt("Insert book title:");
-    const author = window.prompt("Insert book author:");
-    const pages = window.prompt("Insert how many pages is long:");
-    const read = window.prompt("Did you read it? Yes or No");
+    const title = document.getElementById("addTitle").value;
+    const author = document.getElementById("addAuthor").value;
+    const pages = document.getElementById("addPages").value;
+    const read = document.getElementById("addRead").value;
     const book = new newBook (title, author, pages, read);
     myLibrary.push (book);
     const last = myLibrary.length-1;
@@ -108,4 +108,3 @@ function refreshLib () {
 
 
 document.getElementById("addBook").onclick = addBookToLibrary;
-document.getElementById("showLibrary").onclick = showLibrary;
