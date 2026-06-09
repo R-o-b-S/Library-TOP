@@ -46,17 +46,14 @@ function addBookToLibrary () { //in sviluppo, input tramite form
     const read = window.prompt("Did you read it? Yes or No");
     const book = new newBook (title, author, pages, read);
     myLibrary.push (book);
+    const last = myLibrary.length-1;
+    console.log(last);
+    const newDiv = document.createElement("div");
+    newDiv.classList = "card";
+    newDiv.id = myLibrary[last].id;
+    document.getElementById("main").appendChild(newDiv);
+    refreshLib();
 }
-
-function showLibrary () {
-    const counter = myLibrary.length;
-    for (i=0; i<counter; i++){
-        console.log(myLibrary[i].info());
-    }
-    refreshLib ();
-}
-
-let e = 0;
 
 function fillLib () {
     const counter = myLibrary.length;
@@ -94,21 +91,18 @@ function fillLib () {
         read.textContent = txt;
         document.getElementById("cont"+i).appendChild(read);
     }
-    e++;
+    
 }
 
+fillLib();
+
 function refreshLib () {
-    if (e==0) {
-        fillLib();
-    }
-    else {
         const counter = myLibrary.length;
         for (i=0; i<counter; i++) {
             const element = document.getElementById(myLibrary[i].id);
             element.remove();
             }
         fillLib();
-        }
 } 
 
 
