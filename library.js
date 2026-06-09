@@ -17,7 +17,7 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
         "title": "Test1",
         "author": "Micio Pallino the Cat",
         "pages": "156",
-        "read": "true",
+        "read": "Yes",
         "id": "ttr32ge",
         "info": function () {
             const inf = this.title + " by " + this.author +
@@ -29,7 +29,7 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
         "title": "Test2",
         "author": "Micio Pallino the Cat",
         "pages": "301",
-        "read": "false",
+        "read": "No",
         "id": "tht78pl",
         "info": function () {
             const inf = this.title + " by " + this.author +
@@ -64,32 +64,60 @@ function fillLib () {
         document.getElementById("main").appendChild(newDiv);
 
         const contDiv = document.createElement("div");
-        contDiv.id = "cont"+i;
+        contDiv.id = "container"+i;
         document.getElementById(myLibrary[i].id).appendChild(contDiv);
 
-        const title = document.createElement("p");
-        title.id = "title";
-        let txt = "Book title: " + myLibrary[i].title;
-        title.textContent = txt;
-        document.getElementById("cont"+i).appendChild(title);
+        const titleDiv = document.createElement("div");
+        titleDiv.classList = "bookInfo";
+        titleDiv.id = "title"+i;
+        document.getElementById("container"+i).appendChild(titleDiv);
+        const title1 = document.createElement("p");
+        let txt = "Book title:";
+        title1.textContent = txt;
+        document.getElementById("title"+i).appendChild(title1);
+        const title2 = document.createElement("p");
+        txt = myLibrary[i].title;
+        title2.textContent = txt;
+        document.getElementById("title"+i).appendChild(title2);
 
-        const author = document.createElement("p");
-        author.id = "author";
-        txt = "Author: " + myLibrary[i].author;
-        author.textContent = txt;
-        document.getElementById("cont"+i).appendChild(author);
+        const authorDiv = document.createElement("div");
+        authorDiv.classList = "bookInfo";
+        authorDiv.id = "author"+i;
+        document.getElementById("container"+i).appendChild(authorDiv);
+        const author1 = document.createElement("p");
+        txt = "Author:";
+        author1.textContent = txt;
+        document.getElementById("author"+i).appendChild(author1);
+        const author2 = document.createElement("p");
+        txt = myLibrary[i].author;
+        author2.textContent = txt;
+        document.getElementById("author"+i).appendChild(author2);
 
-        const pages = document.createElement("p");
-        pages.id = "pages";
-        txt = "Number of pages: " + myLibrary[i].pages;
-        pages.textContent = txt;
-        document.getElementById("cont"+i).appendChild(pages);
+        const pagesDiv = document.createElement("div");
+        pagesDiv.classList = "bookInfo";
+        pagesDiv.id = "pages"+i;
+        document.getElementById("container"+i).appendChild(pagesDiv);
+        const pages1 = document.createElement("p");
+        txt = "N. of pages:";
+        pages1.textContent = txt;
+        document.getElementById("pages"+i).appendChild(pages1);
+        const pages2 = document.createElement("p");
+        txt = myLibrary[i].pages;
+        pages2.textContent = txt;
+        document.getElementById("pages"+i).appendChild(pages2);
 
-        const read = document.createElement("p");
-        read.id = "pages";
-        txt = "Read: " + myLibrary[i].read;
-        read.textContent = txt;
-        document.getElementById("cont"+i).appendChild(read);
+        const readDiv = document.createElement("div");
+        readDiv.classList = "bookInfo";
+        readDiv.id = "read"+i;
+        document.getElementById("container"+i).appendChild(readDiv);
+        const read1 = document.createElement("p");
+        txt = "Read:";
+        read1.textContent = txt;
+        document.getElementById("read"+i).appendChild(read1);
+        const read2 = document.createElement("p");
+        txt = myLibrary[i].read;
+        read2.textContent = txt;
+        document.getElementById("read"+i).appendChild(read2);
     }
     
 }
