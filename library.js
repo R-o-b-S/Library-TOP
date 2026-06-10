@@ -4,7 +4,6 @@ function newBook (title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.id = self.crypto.randomUUID();
-    console.log(this.id);
     this.info = function() {
         const inf = this.title + " by " + this.author +
         ", " + this.pages + " pages, " + this.read;
@@ -163,10 +162,6 @@ function deleteBook (e) {
             myLibrary.splice(i, 1);
             element.remove();
         }
-        else {
-            element.remove();
-        }
-    
     }
     fillLib();
 }
