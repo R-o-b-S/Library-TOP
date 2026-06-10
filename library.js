@@ -14,8 +14,8 @@ function newBook (title, author, pages, read) {
 
 const myLibrary = [ //Array that will contain all books, added two for testing purposes
     {
-        "title": "Test1",
-        "author": "Micio Pallino the Cat",
+        "title": "Miaw",
+        "author": "Micio the Cat",
         "pages": "156",
         "read": "Yes",
         "id": "ttr32ge",
@@ -26,8 +26,8 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
         }
     },
     {
-        "title": "Test2",
-        "author": "Micio Pallino the Cat",
+        "title": "Miao",
+        "author": "Micio Pallino il Gatto",
         "pages": "301",
         "read": "No",
         "id": "tht78pl",
@@ -39,7 +39,7 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
     },
 ];  
 
-function addBookToLibrary () { //in sviluppo, input tramite form
+function addBookToLibrary () {
     const title = document.getElementById("addTitle").value;
     const author = document.getElementById("addAuthor").value;
     const pages = document.getElementById("addPages").value;
@@ -47,13 +47,14 @@ function addBookToLibrary () { //in sviluppo, input tramite form
     const book = new newBook (title, author, pages, read);
     myLibrary.push (book);
     const last = myLibrary.length-1;
-    console.log(last);
     const newDiv = document.createElement("div");
     newDiv.classList = "card";
     newDiv.id = myLibrary[last].id;
     document.getElementById("main").appendChild(newDiv);
     refreshLib();
 }
+
+document.getElementById("addBook").onclick = addBookToLibrary;
 
 function fillLib () {
     const counter = myLibrary.length;
@@ -129,9 +130,9 @@ function fillLib () {
         document.getElementById(myLibrary[i].id).appendChild(buttonDiv);
         const butt1 = document.createElement("button");
         butt1.classList = "doStuff";
-        butt1.id = "delete";
         txt = "Delete book";
         butt1.textContent = txt;
+        butt1.addEventListener("click", () => deleteBook(newDiv.id));
         document.getElementById("butt"+i).appendChild(butt1);
         const butt2 = document.createElement("button");
         butt2.classList = "doStuff";
@@ -140,7 +141,6 @@ function fillLib () {
         butt2.textContent = txt;
         document.getElementById("butt"+i).appendChild(butt2);
     }
-    
 }
 
 fillLib();
@@ -154,6 +154,18 @@ function refreshLib () {
         fillLib();
 } 
 
-
-
-document.getElementById("addBook").onclick = addBookToLibrary;
+function deleteBook (e) {
+    const counter = myLibrary.length;
+    for (i=0; i<counter; i++) {
+        const element = document.getElementById(myLibrary[i].id);
+        if (e === myLibrary[i].id) {
+            myLibrary.splice(i, 1);
+            element.remove();
+        }
+        else {
+            element.remove();
+        }
+    
+    }
+    fillLib();
+}
