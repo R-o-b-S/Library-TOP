@@ -139,6 +139,7 @@ function fillLib () {
         butt2.id = "refRead";
         txt = "Read status";
         butt2.textContent = txt;
+        butt2.addEventListener("click", () => readStatus(newDiv.id));
         document.getElementById("butt"+i).appendChild(butt2);
     }
 }
@@ -160,6 +161,27 @@ function deleteBook (e) {
         const element = document.getElementById(myLibrary[i].id);
         if (e === myLibrary[i].id) {
             myLibrary.splice(i, 1);
+            element.remove();
+        }
+        else {
+            element.remove();
+        }
+    
+    }
+    fillLib();
+}
+
+function readStatus(e) {
+    const counter = myLibrary.length;
+    for (i=0; i<counter; i++) {
+        const element = document.getElementById(myLibrary[i].id);
+        if (e === myLibrary[i].id) {
+            if (myLibrary[i].read === "Yes"){
+                myLibrary[i].read = "No";
+            }
+            else if (myLibrary[i].read === "No"){
+                myLibrary[i].read = "Yes";
+            }
             element.remove();
         }
         else {
