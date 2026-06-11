@@ -42,7 +42,7 @@ function addBookToLibrary () {
     const title = document.getElementById("addTitle").value;
     const author = document.getElementById("addAuthor").value;
     const pages = document.getElementById("addPages").value;
-    const read = document.getElementById("addRead").value;
+    const read = document.getElementById("addRead").checked;
     const book = new newBook (title, author, pages, read);
     myLibrary.push (book);
     const last = myLibrary.length-1;
@@ -60,14 +60,10 @@ function displayForm () {
 
 document.getElementById("addBook").onclick = displayForm;
 
-function submitForm () {
+function submitForm (event) {
     addBookToLibrary();
-    const element = document.getElementById("newBook");
-    element.open = false;
-    document.getElementById("addTitle").value = "";
-    document.getElementById("addAuthor").value = "";
-    document.getElementById("addPages").value = "";
-    document.getElementById("addRead").value = "";
+    event.preventDefault();
+    closeForm ();
 }
 
 document.getElementById("submitForm").onclick = submitForm;
@@ -78,7 +74,7 @@ function closeForm () {
     document.getElementById("addTitle").value = "";
     document.getElementById("addAuthor").value = "";
     document.getElementById("addPages").value = "";
-    document.getElementById("addRead").value = "";
+    document.getElementById("addRead").checked = false;
 }
 
 document.getElementById("cancelForm").onclick = closeForm;

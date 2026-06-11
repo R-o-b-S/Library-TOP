@@ -21,11 +21,10 @@
             New book
         </button>
     </div>
-
     
     <div id="main">
-    </div>
-    <dialog id="newBook">
+
+        <dialog id="newBook">
             <div>
                 <p>Fill this form to add a new book:</p>
                 <form action="" method="post">
@@ -42,14 +41,18 @@
                 </form>
                 <form action="" method="post">
                     <label for="read">Read</label>
-                    <input type="text" id="addRead" required>
+                    <input type="checkbox" id="addRead">
                 </form>
             </div>
             <div id="formButtons">
-                <button class="doStuff" id="submitForm">Submit</button>
+                <input type="submit" class="doStuff" id="submitForm" value="Submit" />
                 <button class="doStuff" id="cancelForm">Cancel</button>
             </div>
-    </dialog>
+        </dialog>
+        
+    </div>
+
+    
     
     
 </body>
