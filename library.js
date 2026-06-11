@@ -16,7 +16,7 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
         "title": "Miaw",
         "author": "Micio the Cat",
         "pages": "156",
-        "read": "Yes",
+        "read": true,
         "id": "ttr32ge",
         "info": function () {
             const inf = this.title + " by " + this.author +
@@ -28,7 +28,7 @@ const myLibrary = [ //Array that will contain all books, added two for testing p
         "title": "Miao",
         "author": "Micio Pallino il Gatto",
         "pages": "301",
-        "read": "No",
+        "read": false,
         "id": "tht78pl",
         "info": function () {
             const inf = this.title + " by " + this.author +
@@ -133,20 +133,6 @@ function fillLib () {
         pages2.textContent = txt;
         document.getElementById("pages"+i).appendChild(pages2);
 
-        const readDiv = document.createElement("div");
-        readDiv.classList = "bookInfo";
-        readDiv.id = "read"+i;
-        document.getElementById("container"+i).appendChild(readDiv);
-        const read1 = document.createElement("p");
-        read1.classList = "bI";
-        txt = "Read:";
-        read1.textContent = txt;
-        document.getElementById("read"+i).appendChild(read1);
-        const read2 = document.createElement("p");
-        txt = myLibrary[i].read;
-        read2.textContent = txt;
-        document.getElementById("read"+i).appendChild(read2);
-
         const buttonDiv = document.createElement("div");
         buttonDiv.classList = "bookInfo";
         buttonDiv.id = "butt"+i;
@@ -157,10 +143,19 @@ function fillLib () {
         butt1.textContent = txt;
         butt1.addEventListener("click", () => deleteBook(newDiv.id));
         document.getElementById("butt"+i).appendChild(butt1);
+        
         const butt2 = document.createElement("button");
         butt2.classList = "doStuff";
-        butt2.id = "refRead";
-        txt = "Read status";
+        butt2.id = "refRead"+i;
+        if (myLibrary[i].read === true){
+                txt = "Read";
+                butt2.style.backgroundColor = "#e6af2e";
+                butt2.addEventListener("mouseenter", (event) => {butt2.style.backgroundColor = "#e0e2db"; })
+                butt2.addEventListener("mouseleave", (event) => {butt2.style.backgroundColor = "#e6af2e"; })
+            }
+        else if (myLibrary[i].read === false){
+            txt = "Not read";
+        }
         butt2.textContent = txt;
         butt2.addEventListener("click", () => readStatus(newDiv.id));
         document.getElementById("butt"+i).appendChild(butt2);
@@ -195,11 +190,11 @@ function readStatus(e) {
     for (i=0; i<counter; i++) {
         const element = document.getElementById(myLibrary[i].id);
         if (e === myLibrary[i].id) {
-            if (myLibrary[i].read === "Yes"){
-                myLibrary[i].read = "No";
+            if (myLibrary[i].read === true){
+                myLibrary[i].read = false;
             }
-            else if (myLibrary[i].read === "No"){
-                myLibrary[i].read = "Yes";
+            else if (myLibrary[i].read === false){
+                myLibrary[i].read = true;
             }
             element.remove();
         }
