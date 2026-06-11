@@ -79,6 +79,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0.6rem;
+    
 }
 
 .card {
@@ -121,49 +122,53 @@ body {
     width: 16rem;
     height: 20rem;
     padding: 1rem;
-    margin: 0.6rem;
     border: solid 1px;
     border-radius: 10px;
     border-color: var(--color3);
     background-color: var(--color4);
     color: var(--color1);
-    flex-direction: column;
-    align-content: center;
-    justify-content: space-between;
     box-shadow: 1px 1px 4px grey;
 }
 
 #newBook:open {
+    display: flex;
+}
+
+
+#formCollect {
     display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    color: var(--color3);
 }
 
 #formButtons {
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
-form {
-    display:flex;
-    justify-content: space-between;
-}
 
 input {
     border-radius: 4px;
     border-color: #E5E7EB;
     border-width: 1px;
-    width: 8rem;
+    width: 15.5rem;
+}
+
+#submitForm {
+    width: 6rem;
+}
+
+#addRead {
+    width: 1rem;
 }
 
 input:user-valid {
-    border-color: green;
+    border-color: var(--color3);
 }
 
 input:user-invalid {
     border-color: red;
-}
-
-input:focus {
-    border-color: blue;
-    box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
 }
