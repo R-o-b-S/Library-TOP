@@ -53,7 +53,35 @@ function addBookToLibrary () {
     refreshLib();
 }
 
-document.getElementById("addBook").onclick = addBookToLibrary;
+function displayForm () {
+    const element = document.getElementById("newBook");
+    element.open = true;
+}
+
+document.getElementById("addBook").onclick = displayForm;
+
+function submitForm () {
+    addBookToLibrary();
+    const element = document.getElementById("newBook");
+    element.open = false;
+    document.getElementById("addTitle").value = "";
+    document.getElementById("addAuthor").value = "";
+    document.getElementById("addPages").value = "";
+    document.getElementById("addRead").value = "";
+}
+
+document.getElementById("submitForm").onclick = submitForm;
+
+function closeForm () {
+    const element = document.getElementById("newBook");
+    element.open = false;
+    document.getElementById("addTitle").value = "";
+    document.getElementById("addAuthor").value = "";
+    document.getElementById("addPages").value = "";
+    document.getElementById("addRead").value = "";
+}
+
+document.getElementById("cancelForm").onclick = closeForm;
 
 function fillLib () {
     const counter = myLibrary.length;
@@ -163,7 +191,7 @@ function deleteBook (e) {
             element.remove();
         }
     }
-    fillLib();
+    refreshLib();
 }
 
 function readStatus(e) {

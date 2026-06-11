@@ -8,8 +8,12 @@
     <script src="library.js" defer> </script>
 </head>
 <body>
+    <button class="doStuff" id="addBook">Add new book</button>
     <div id="main">
-        <div class="card" id="newBook">
+        
+
+    </div>
+    <dialog id="newBook">
             <div>
                 <p>Fill this form to add a new book:</p>
                 <form action="" method="post">
@@ -29,10 +33,11 @@
                     <input type="text" id="addRead" required>
                 </form>
             </div>
-            <button class="doStuff" id="addBook">Add new book</button>
-        </div>
-
-    </div>
+            <div>
+                <button id="submitForm">Submit</button>
+                <button id="cancelForm">Cancel</button>
+            </div>
+    </dialog>
     
     
 </body>
